@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Approval Prediction Result</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Loan Approval Prediction App</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#home-section">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container my-5">
+        {% if request %}
+            <h2 style="color: rebeccapurple; font-style: italic; margin-right: 50%;">{{ request }}</h2>
+        {% endif %}
+        <form action="{{ url_for('submit') }}" method="post">
+            <div class="mb-3">
+                <label for="gender" class="form-label">Gender</label>
+                <select class="form-select" id="gender" name="Gender">
+                    <option selected disabled>Choose...</option>
+                    <option value="0">Male</option>
+                    <option value="1">Female</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="married" class="form-label">Married</label>
+                <select class="form-select" id="married" name="Married">
+                    <option selected disabled>Choose...</option>
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="dependents" class="form-label">Dependents</label>
+                <select class="form-select" id="dependents" name="Dependents">
+                    <option selected disabled>Choose...</option>
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="education" class="form-label">Education</label>
+                <select class="form-select" id="education" name="Education">
+                    <option selected disabled>Choose...</option>
+                    <option value="0">Not Graduate</option>
+                    <option value="1">Graduate</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="self-employed" class="form-label">Self Employed</label>
+                <select class="form-select" id="self-employed" name="Self_Employed">
+                    <option selected disabled>Choose...</option>
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="applicant-income" class="form-label">Applicant Income</label>
+                <input type="number" class="form-control" id="applicant-income" name="ApplicantIncome" required>
+            </div>
+            <div class="mb-3">
+                <label for="coapplicant-income" class="form-label">Coapplicant Income</label>
+                <input type="number" class="form-control" id="coapplicant-income" name="CoapplicantIncome" required>
+            </div>
+            <div class="mb-3">
+                <label for="loan-amount" class="form-label">Loan Amount</label>
+                <input type="number" class="form-control" id="loan-amount" name="LoanAmount" required>
+            </div>
+            <div class="mb-3">
+                <label for="loan-amount-term" class="form-label">Loan Amount Term</label>
+                <select class="form-select" id="loan-amount-term" name="Loan_Amount_Term">
+                    <option selected disabled>Choose...</option>
+                    <option value="12">12 months</option>
+                    <option value="36">36 months</option>
+                    <option value="60">60 months</option>
+                    <option value="84">84 months</option>
+                    <option value="120">120 months</option>
+                    <option value="180">180 months</option>
+                    <option value="240">240 months</option>
+                    <option value="300">300 months</option>
+                    <option value="360">360 months</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="credit-history" class="form-label">Credit History</label>
+                <select class="form-select" id="credit-history" name="Credit_History">
+                    <option selected disabled>Choose...</option>
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="property-area" class="form-label">Property Area</label>
+                <select class="form-select" id="property-area" name="Property_Area">
+                    <option selected disabled>Choose...</option>
+                    <option value="0">Rural</option>
+                    <option value="1">Semiurban</option>
+                    <option value="2">Urban</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
